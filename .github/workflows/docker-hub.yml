@@ -18,15 +18,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Get docker image version
+        run: echo "DOCKER_IMAGE_VERSION=$(./get-version.sh)" >> $GITHUB_ENV
       - name: Print docker image version
-        env:
-          VERSION: $(./get-version.sh)
-        run: echo $VERSION
+        run: echo $DOCKER_IMAGE_VERSION
       - name: Build and push
         uses: docker/build-push-action@v2
-        env:
-          VERSION: $(./get-version.sh)
         with:
           context: .
           push: true
-          tags: deemson/graphql-code-generator:$VERSION
+          tags: deemson/graphql-code-generator:$DOCKER_IMAGE_VERSION
