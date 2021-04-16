@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: deemson/graphql-code-generator:$VERSION
+          tags: deemson/graphql-code-generator:${{VERSION}}
