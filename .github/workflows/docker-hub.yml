@@ -21,7 +21,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         env:
-          VERSION: $(cat package.json | grep version | sed --regexp-extended 's/^\s*"version": "(.*)",$/\1/')
+          VERSION: $(./get-version.sh)
         with:
           context: .
           push: true
