@@ -21,8 +21,7 @@ jobs:
       - name: Print docker image version
         env:
           VERSION: $(./get-version.sh)
-        script:
-          - echo $VERSION
+        run: echo $VERSION
       - name: Build and push
         uses: docker/build-push-action@v2
         env:
