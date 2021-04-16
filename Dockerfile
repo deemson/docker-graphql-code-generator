@@ -4,4 +4,4 @@ COPY package.json ./package.json
 COPY yarn.lock ./yarn.lock
 RUN yarn install
 
-ENTRYPOINT ["yarn", "graphql-codegen"]
+ENTRYPOINT ["/node_modules/.bin/graphql-codegen"]
