@@ -27,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: deemson/graphql-code-generator:$DOCKER_IMAGE_VERSION
+          tags: "deemson/graphql-code-generator:$DOCKER_IMAGE_VERSION"
